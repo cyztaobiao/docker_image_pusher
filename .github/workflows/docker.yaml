@@ -58,6 +58,8 @@ jobs:
     - name: Build and push image Aliyun
       run: |
         docker logout registry.cn-hangzhou.aliyuncs.com
+        docker logout ccr.ccs.tencentyun.com
+        echo "registry $ALIYUN_REGISTRY"
         docker login --username=$ALIYUN_REGISTRY_USER --password=$ALIYUN_REGISTRY_PASSWORD $ALIYUN_REGISTRY
         # 数据预处理,判断镜像是否重名
         declare -A duplicate_images
